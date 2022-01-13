@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tabler/core@1.0.0-beta5/dist/js/tabler.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta5/dist/css/tabler.min.css">
+    <title>NEW YEAR wishes</title>
+    <style>
+        body {
+          background-image: url('bg.PNG');
+          background-attachment: fixed; 
+          background-size: 100px;
+        }
+        </style>
+</head>
+<body>
+  <center>
+  <div class="container" id= "snow">
+    <div class="card mt-5 pt-3 col-10" style="background-color: red;">
+      <h1 style="color:white; font-size: 28px;">New Year wishes</h1>
+      <center>
+    <img src="line.PNG" style="height: 100px; width: 250px;">
+      </center>
+      <div>
+        <img src="giftbox.gif" onclick="Hello(); playAudio();" style="max-width: 250px; max-height: 500px;">
+        <p style="color: white;">Made With &#x2764; By Abhi & Jaikt.</p>
+      </div>
+    </div>
+  </div>
+  <audio id="myAudio">
+    <source src="audio.mp3" type="audio/mp3">
+    
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="suprise" class="card mt-5 pt-3 col-10" style="display: none; background-color: red;">
+    <img src="ifmobile.svg" width="400" height="400" class="img-fluid"><br><br>
+  
+  <h1 style="color:white; font-size: 28px;">Make your resolution</h1>
+  <div class="col-lg-3 col-md-11">
+    <input type="text" class="form-control mb-3" id="res" placeholder="Type">
+    <center>
+    <button class="btn btn-primary" onclick="getValues()" data-bs-toggle="modal" data-bs-target="#modal-success">Save Resolution</button><br><br>
+    <button class="btn btn-primary" onclick="setValues()">Retrieve Resolution</button>
+  </center> 
+</div>
+  </div>
+<div class="modal modal-blur fade pt-3px" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+<div class="modal-content">
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal-status bg-success"></div>
+<div class="modal-body text-center py-4">
+<h2>Resolution has been made!</h2>
+<div class="text-muted">If you want to read your resolution again, revisit the site and click on "<b>Retrieve Resolution</b>"</div>
+</div>
+  <script>
+    function Hello() 
+    {
+        var x = document.getElementById('snow');
+if (x.style.display == 'none') {
+    x.style.display = 'block';
+} else {
+    x.style.display = 'none';
+    }
+  
+var x = document.getElementById('suprise');
+if (x.style.display == 'none') {
+    x.style.display = 'block';
+} else {
+    x.style.display = 'none';
+}
+    }
+    
+      var x = document.getElementById("myAudio"); 
+  
+function playAudio() { 
+x.play(); 
+} 
+
+function getValues() 
+{
+  
+  resolution = "Test"
+  resolution = document.getElementById("res").value
+  
+  
+localStorage.setItem("res1",resolution );
+
+}
+
+function setValues() 
+{
+  
+  res = localStorage.getItem("res1" );
+  
+  document.getElementById("res").value = res
+ 
+
+}
+</script>
+</body>
+</html>
